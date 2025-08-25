@@ -821,23 +821,31 @@ function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t-4 border-white mt-8 sm:mt-12 pt-6 sm:pt-8">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
-              <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-cyan-400" />
-                <span className="text-base sm:text-lg font-mono">contact@usnewse.com</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-lime-400" />
-                <span className="text-base sm:text-lg font-mono">Global Education Platform</span>
-              </div>
-            </div>
-
-            <div className="text-base sm:text-lg font-mono">© 2024 USNEWSE.COM - ALL RIGHTS RESERVED</div>
-          </div>
-        </div>
+<div className="border-t-4 border-white mt-8 sm:mt-12 pt-6 sm:pt-8">
+  <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+      <div className="flex items-center gap-3">
+        <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-cyan-400" />
+        <span className="text-base sm:text-lg font-mono">contact@usnewse.com</span>
       </div>
-    </footer>
+      <div className="flex items-center gap-3">
+        <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-lime-400" />
+        <span className="text-base sm:text-lg font-mono">Global Education Platform</span>
+      </div>
+    </div>
+
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-base sm:text-lg font-mono">
+      <a href="/about" className="hover:text-cyan-400 transition-colors">About</a>
+      <a href="/contact" className="hover:text-cyan-400 transition-colors">Contact</a>
+      <a href="/privacy-policy" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>
+      <a href="/terms-conditions" className="hover:text-cyan-400 transition-colors">Terms of Service</a>
+      <a href="/disclaimer" className="hover:text-cyan-400 transition-colors">Disclaimer</a>
+    </div>
+
+    <div className="text-base sm:text-lg font-mono">© 2024 USNEWSE.COM - ALL RIGHTS RESERVED</div>
+  </div>
+</div>
+</div>
+</footer>
   )
 }
