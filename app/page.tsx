@@ -1,4 +1,4 @@
-use client
+"use client"
 
 import { useState } from "react"
 import {
@@ -835,25 +835,6 @@ function Footer() {
             </div>
 
             <div className="text-base sm:text-lg font-mono">© 2024 USNEWSE.COM - ALL RIGHTS RESERVED</div>
-          </div>
-          
-          {/* Page Links */}
-          <div className="mt-6 flex flex-wrap gap-4 sm:gap-6 justify-center">
-            <Link href="/about" className="text-base sm:text-lg font-mono hover:text-yellow-500 transition-colors">
-              About
-            </Link>
-            <Link href="/contact" className="text-base sm:text-lg font-mono hover:text-blue-400 transition-colors">
-              Contact
-            </Link>
-            <Link href="/privacy-policy" className="text-base sm:text-lg font-mono hover:text-red-400 transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms-of-service" className="text-base sm:text-lg font-mono hover:text-emerald-400 transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="/disclaimer" className="text-base sm:text-lg font-mono hover:text-cyan-400 transition-colors">
-              Disclaimer
-            </Link>
           </div>
         </div>
       </div>
