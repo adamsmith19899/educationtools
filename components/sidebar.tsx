@@ -51,6 +51,7 @@ export default function Sidebar() {
         fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-900 border-l-8 border-black z-40 transform transition-transform duration-300 ease-in-out
         ${isOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"}
       `}
+        style={{ height: '100vh', maxHeight: '100vh', overflowY: 'auto' }}
       >
         <div className="p-6 border-b-4 border-black">
           <Link href="/" className="flex items-center gap-3">
@@ -60,7 +61,7 @@ export default function Sidebar() {
           </Link>
         </div>
 
-        <nav className="p-6">
+        <nav className="p-6" style={{ flex: '1', overflowY: 'auto' }}>
           <h2 className="text-lg font-black uppercase mb-6 border-b-2 border-black dark:border-white pb-2 text-black dark:text-white">
             Study Tools
           </h2>
