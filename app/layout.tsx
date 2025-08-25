@@ -5,7 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Universal Study & Education Support - Free Online Study Tools | USNEWSE.COM",
+  title: "Universal Study & Education Support - Free Online Study Tools",
   description:
     "Boost your academic performance with our comprehensive suite of free study tools. Features flashcard generator, study planner, concept maps, math solver, vocabulary builder, essay outlines, Pomodoro timer, goal tracker, note summarizer, and mnemonic generator.",
   keywords: [
