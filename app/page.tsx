@@ -42,7 +42,7 @@ export default function UniversalStudyEducation() {
                 <div className="h-8 w-8 sm:h-12 sm:w-12 bg-yellow-500 border-2 sm:border-4 border-black rotate-12"></div>
                 <div className="h-8 w-8 sm:h-12 sm:w-12 bg-blue-600 border-2 sm:border-4 border-black -ml-4 sm:-ml-6 -rotate-12"></div>
                 <span className="font-black text-lg sm:text-2xl tracking-tighter ml-2 sm:ml-4 text-white">
-                  USNEWSE.COM
+                  Universal Study & Education
                 </span>
               </div>
             </div>
@@ -707,7 +707,7 @@ function Footer() {
             <div className="flex items-center mb-6">
               <div className="h-12 w-12 sm:h-16 sm:w-16 bg-yellow-500 border-4 border-white rotate-12"></div>
               <div className="h-12 w-12 sm:h-16 sm:w-16 bg-blue-600 border-4 border-white -ml-6 sm:-ml-8 -rotate-12"></div>
-              <span className="font-black text-2xl sm:text-3xl tracking-tighter ml-4 sm:ml-6">USNEWSE.COM</span>
+              <span className="font-black text-2xl sm:text-3xl tracking-tighter ml-4 sm:ml-6">Universal Study & Education</span>
             </div>
             <p className="text-lg sm:text-xl mb-6 leading-relaxed">
               Universal Study & Education Support - Comprehensive educational tools designed to enhance your learning
@@ -842,7 +842,7 @@ function Footer() {
       <a href="/disclaimer" className="hover:text-cyan-400 transition-colors">Disclaimer</a>
     </div>
 
-    <div className="text-base sm:text-lg font-mono">© 2024 USNEWSE.COM - ALL RIGHTS RESERVED</div>
+    <div className="text-base sm:text-lg font-mono">© 2025 USNEWSE.COM - ALL RIGHTS RESERVED</div>
   </div>
 </div>
 </div>
