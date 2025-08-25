@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     "student resources",
     "free study aids",
   ],
-  authors: [{ name: "USNEWSE Education Team" }],
-  creator: "USNEWSE.COM",
-  publisher: "USNEWSE.COM",
+  authors: [{ name: "Universal Study & Education" }],
+  creator: "Waqas Bukhari",
+  publisher: "Universal Study & Education",
   robots: {
     index: true,
     follow: true,
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     canonical: "https://usnewse.com",
   },
   category: "education",
-  generator: "v0.app",
+  generator: "Waqas Bukhari",
 }
 
 export default function RootLayout({
