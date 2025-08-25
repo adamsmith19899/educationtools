@@ -203,7 +203,7 @@ export default function MathProblemSolver() {
     <div className="min-h-screen bg-background font-mono">
       <Sidebar />
 
-      <div className="lg:ml-80">
+      <div className="lg:pl-80">
         <div className="container py-8 px-6">
           {/* Header with Schema Markup */}
           <script
