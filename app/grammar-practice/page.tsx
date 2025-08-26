@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { BookOpen, Plus, RotateCcw, X, Shuffle, Download, Check, XCircle, HelpCircle } from "lucide-react"
+import { BookOpen, Plus, RotateCcw, X, Shuffle, Download, Check, XCircle, HelpCircle, AlertCircle } from "lucide-react"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import Sidebar from "@/components/sidebar"
