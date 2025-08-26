@@ -1,11 +1,12 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { BookOpen, Plus, RotateCcw, X, Shuffle, Download, Gamepad, Grid, List } from "lucide-react"
+import { BookOpen, Plus, RotateCcw, X, Shuffle, Download, Gamepad, Grid, List, AlertCircle } from "lucide-react"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import Sidebar from "@/components/sidebar"
-import ScrollToTop from "@/components/scroll-to-top" 
+import ScrollToTop from "@/components/scroll-to-top"
+import { AlertCircle } from "lucide-react";
 
 interface Card {
   id: string
