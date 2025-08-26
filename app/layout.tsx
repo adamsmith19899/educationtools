@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     creator: "@usnewse",
   },
   alternates: {
-    canonical: "https://usnewse.com",
+    canonical: "https://www.usnewse.com",
   },
   category: "education",
   generator: "Waqas Bukhari",
