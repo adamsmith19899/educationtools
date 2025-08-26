@@ -6,7 +6,6 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import Sidebar from "@/components/sidebar"
 import ScrollToTop from "@/components/scroll-to-top"
-import { AlertCircle } from "lucide-react"
 
 interface Card {
   id: string
