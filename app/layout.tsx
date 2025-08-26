@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://usnewse.com",
+    url: "https://www.usnewse.com",
     siteName: "Universal Study & Education Support",
     title: "Universal Study & Education Support - Free Online Study Tools",
     description:
