@@ -5,7 +5,7 @@ import { BookOpen, Plus, RotateCcw, X, Shuffle, Download, Gamepad, Grid, List } 
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import Sidebar from "@/components/sidebar"
-import ScrollToTop from "@/components/scroll-to-top"
+import ScrollToTop from "@/components/scroll-to-top" 
 
 interface Card {
   id: string
