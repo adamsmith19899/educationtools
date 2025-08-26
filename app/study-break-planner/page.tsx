@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { BookOpen, Plus, RotateCcw, X, Shuffle, Download, Coffee, Clock, Calendar, Music } from "lucide-react"
+import { BookOpen, Plus, RotateCcw, X, Shuffle, Download, Coffee, Clock, Calendar, Music, AlertCircle } from "lucide-react"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import Sidebar from "@/components/sidebar"
