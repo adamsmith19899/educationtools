@@ -219,165 +219,253 @@ function StudyTabs() {
       </TabsContent>
 
       {/* Tools Tab */}
-      <TabsContent value="tools" className="space-y-8 sm:space-y-12">
-        <section className="space-y-6 sm:space-y-8">
-          <h2 className="text-2xl sm:text-4xl font-black tracking-tighter uppercase border-b-2 sm:border-b-4 border-black pb-2 inline-block">
-            STUDY TOOLS
-          </h2>
-          <p className="text-lg sm:text-xl">
-            Comprehensive suite of educational tools to enhance your learning experience.
-          </p>
+<TabsContent value="tools" className="space-y-8 sm:space-y-12">
+  <section className="space-y-6 sm:space-y-8">
+    <h2 className="text-2xl sm:text-4xl font-black tracking-tighter uppercase border-b-2 sm:border-b-4 border-black pb-2 inline-block">
+      STUDY TOOLS
+    </h2>
+    <p className="text-lg sm:text-xl">
+      Comprehensive suite of educational tools to enhance your learning experience.
+    </p>
 
-          <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Flashcard Generator */}
-            <div className="bg-white dark:bg-gray-900 border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
-              <div className="flex items-center gap-3 mb-4">
-                <BookOpen className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600 flex-shrink-0" />
-                <h3 className="text-lg sm:text-xl font-black uppercase">FLASHCARD GENERATOR</h3>
-              </div>
-              <p className="text-base sm:text-lg mb-4">
-                Create interactive flashcards from your study materials automatically.
-              </p>
-              <Link href="/flashcard-generator">
-                <button className="bg-blue-600 text-white border-2 sm:border-4 border-black px-3 sm:px-4 py-2 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
-                  CREATE CARDS
-                </button>
-              </Link>
-            </div>
+    <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {/* === Original Tools (10) === */}
+      
+      {/* Flashcard Generator */}
+      <div className="bg-white dark:bg-gray-900 border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <BookOpen className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600 flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">FLASHCARD GENERATOR</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">
+          Create interactive flashcards from your study materials automatically.
+        </p>
+        <Link href="/flashcard-generator">
+          <button className="bg-blue-600 text-white border-2 sm:border-4 border-black px-3 sm:px-4 py-2 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            CREATE CARDS
+          </button>
+        </Link>
+      </div>
 
-            {/* Study Schedule Planner */}
-            <div className="bg-yellow-500 border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
-              <div className="flex items-center gap-3 mb-4">
-                <Clock className="h-6 w-6 sm:h-8 sm:w-8 text-black flex-shrink-0" />
-                <h3 className="text-lg sm:text-xl font-black uppercase">STUDY PLANNER</h3>
-              </div>
-              <p className="text-base sm:text-lg mb-4">
-                Plan and organize your study sessions with intelligent scheduling.
-              </p>
-              <Link href="/study-schedule-planner">
-                <button className="bg-black text-white border-2 sm:border-4 border-black px-3 sm:px-4 py-2 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
-                  PLAN STUDY
-                </button>
-              </Link>
-            </div>
+      {/* Study Schedule Planner */}
+      <div className="bg-yellow-500 border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <Clock className="h-6 w-6 sm:h-8 sm:w-8 text-black flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">STUDY PLANNER</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">
+          Plan and organize your study sessions with intelligent scheduling.
+        </p>
+        <Link href="/study-schedule-planner">
+          <button className="bg-black text-white border-2 sm:border-4 border-black px-3 sm:px-4 py-2 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            PLAN STUDY
+          </button>
+        </Link>
+      </div>
 
-            {/* Concept Map Builder */}
-            <div className="bg-red-600 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
-              <div className="flex items-center gap-3 mb-4">
-                <Map className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
-                <h3 className="text-lg sm:text-xl font-black uppercase">CONCEPT MAPPER</h3>
-              </div>
-              <p className="text-base sm:text-lg mb-4">
-                Visualize relationships between concepts with interactive mind maps.
-              </p>
-              <Link href="/concept-map-builder">
-                <button className="bg-white text-red-600 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
-                  BUILD MAP
-                </button>
-              </Link>
-            </div>
+      {/* Concept Map Builder */}
+      <div className="bg-red-600 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <Map className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">CONCEPT MAPPER</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">
+          Visualize relationships between concepts with interactive mind maps.
+        </p>
+        <Link href="/concept-map-builder">
+          <button className="bg-white text-red-600 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            BUILD MAP
+          </button>
+        </Link>
+      </div>
 
-            {/* Math Problem Solver */}
-            <div className="bg-black text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal-inverse">
-              <div className="flex items-center gap-3 mb-4">
-                <Calculator className="h-6 w-6 sm:h-8 sm:w-8 text-cyan-400 flex-shrink-0" />
-                <h3 className="text-lg sm:text-xl font-black uppercase">MATH SOLVER</h3>
-              </div>
-              <p className="text-base sm:text-lg mb-4">Step-by-step solutions for complex mathematical problems.</p>
-              <Link href="/math-problem-solver">
-                <button className="bg-cyan-400 text-black border-2 sm:border-4 border-white px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal-white hover:translate-y-1 hover:shadow-none transition-all">
-                  SOLVE MATH
-                </button>
-              </Link>
-            </div>
+      {/* Math Problem Solver */}
+      <div className="bg-black text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal-inverse">
+        <div className="flex items-center gap-3 mb-4">
+          <Calculator className="h-6 w-6 sm:h-8 sm:w-8 text-cyan-400 flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">MATH SOLVER</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">Step-by-step solutions for complex mathematical problems.</p>
+        <Link href="/math-problem-solver">
+          <button className="bg-cyan-400 text-black border-2 sm:border-4 border-white px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal-white hover:translate-y-1 hover:shadow-none transition-all">
+            SOLVE MATH
+          </button>
+        </Link>
+      </div>
 
-            {/* Vocabulary Builder */}
-            <div className="bg-lime-400 border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
-              <div className="flex items-center gap-3 mb-4">
-                <Vocabulary className="h-6 w-6 sm:h-8 sm:w-8 text-black flex-shrink-0" />
-                <h3 className="text-lg sm:text-xl font-black uppercase">VOCAB BUILDER</h3>
-              </div>
-              <p className="text-base sm:text-lg mb-4">Expand your vocabulary with contextual learning exercises.</p>
-              <Link href="/vocabulary-builder">
-                <button className="bg-black text-white border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
-                  BUILD VOCAB
-                </button>
-              </Link>
-            </div>
+      {/* Vocabulary Builder */}
+      <div className="bg-lime-400 border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <Vocabulary className="h-6 w-6 sm:h-8 sm:w-8 text-black flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">VOCAB BUILDER</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">Expand your vocabulary with contextual learning exercises.</p>
+        <Link href="/vocabulary-builder">
+          <button className="bg-black text-white border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            BUILD VOCAB
+          </button>
+        </Link>
+      </div>
 
-            {/* Essay Outline Generator */}
-            <div className="bg-fuchsia-500 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
-              <div className="flex items-center gap-3 mb-4">
-                <FileText className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
-                <h3 className="text-lg sm:text-xl font-black uppercase">ESSAY OUTLINER</h3>
-              </div>
-              <p className="text-base sm:text-lg mb-4">Generate structured outlines for essays and research papers.</p>
-              <Link href="/essay-outline-generator">
-                <button className="bg-white text-fuchsia-500 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
-                  CREATE OUTLINE
-                </button>
-              </Link>
-            </div>
+      {/* Essay Outline Generator */}
+      <div className="bg-fuchsia-500 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <FileText className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">ESSAY OUTLINER</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">Generate structured outlines for essays and research papers.</p>
+        <Link href="/essay-outline-generator">
+          <button className="bg-white text-fuchsia-500 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            CREATE OUTLINE
+          </button>
+        </Link>
+      </div>
 
-            {/* Pomodoro Timer */}
-            <div className="bg-orange-500 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
-              <div className="flex items-center gap-3 mb-4">
-                <Timer className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
-                <h3 className="text-lg sm:text-xl font-black uppercase">POMODORO TIMER</h3>
-              </div>
-              <p className="text-base sm:text-lg mb-4">Boost productivity with focused study sessions and breaks.</p>
-              <Link href="/pomodoro-timer">
-                <button className="bg-white text-orange-500 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
-                  START TIMER
-                </button>
-              </Link>
-            </div>
+      {/* Pomodoro Timer */}
+      <div className="bg-orange-500 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <Timer className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">POMODORO TIMER</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">Boost productivity with focused study sessions and breaks.</p>
+        <Link href="/pomodoro-timer">
+          <button className="bg-white text-orange-500 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            START TIMER
+          </button>
+        </Link>
+      </div>
 
-            {/* Study Goal Tracker */}
-            <div className="bg-emerald-500 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
-              <div className="flex items-center gap-3 mb-4">
-                <Target className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
-                <h3 className="text-lg sm:text-xl font-black uppercase">GOAL TRACKER</h3>
-              </div>
-              <p className="text-base sm:text-lg mb-4">Set, track, and achieve your academic goals systematically.</p>
-              <Link href="/study-goal-tracker">
-                <button className="bg-white text-emerald-500 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
-                  TRACK GOALS
-                </button>
-              </Link>
-            </div>
+      {/* Study Goal Tracker */}
+      <div className="bg-emerald-500 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <Target className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">GOAL TRACKER</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">Set, track, and achieve your academic goals systematically.</p>
+        <Link href="/study-goal-tracker">
+          <button className="bg-white text-emerald-500 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            TRACK GOALS
+          </button>
+        </Link>
+      </div>
 
-            {/* Note Summarizer */}
-            <div className="bg-blue-600 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
-              <div className="flex items-center gap-3 mb-4">
-                <FileCheck className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
-                <h3 className="text-lg sm:text-xl font-black uppercase">NOTE SUMMARIZER</h3>
-              </div>
-              <p className="text-base sm:text-lg mb-4">Transform lengthy notes into concise, actionable summaries.</p>
-              <Link href="/note-summarizer">
-                <button className="bg-white text-blue-600 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
-                  SUMMARIZE
-                </button>
-              </Link>
-            </div>
+      {/* Note Summarizer */}
+      <div className="bg-blue-600 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <FileCheck className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">NOTE SUMMARIZER</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">Transform lengthy notes into concise, actionable summaries.</p>
+        <Link href="/note-summarizer">
+          <button className="bg-white text-blue-600 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            SUMMARIZE
+          </button>
+        </Link>
+      </div>
 
-            {/* Mnemonic Generator */}
-            <div className="bg-yellow-500 border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
-              <div className="flex items-center gap-3 mb-4">
-                <Lightbulb className="h-6 w-6 sm:h-8 sm:w-8 text-black flex-shrink-0" />
-                <h3 className="text-lg sm:text-xl font-black uppercase">MNEMONIC MAKER</h3>
-              </div>
-              <p className="text-base sm:text-lg mb-4">Create memorable mnemonics to enhance information retention.</p>
-              <Link href="/mnemonic-generator">
-                <button className="bg-black text-white border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
-                  MAKE MNEMONICS
-                </button>
-              </Link>
-            </div>
-          </div>
-        </section>
-      </TabsContent>
+      {/* Mnemonic Generator */}
+      <div className="bg-yellow-500 border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <Lightbulb className="h-6 w-6 sm:h-8 sm:w-8 text-black flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">MNEMONIC MAKER</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">Create memorable mnemonics to enhance information retention.</p>
+        <Link href="/mnemonic-generator">
+          <button className="bg-black text-white border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            MAKE MNEMONICS
+          </button>
+        </Link>
+      </div>
 
+      {/* === New Tools (6) === */}
+
+      {/* Study Habit Analyzer */}
+      <div className="bg-indigo-600 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <Activity className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">HABIT ANALYZER</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">Analyze your study patterns and receive personalized improvement tips.</p>
+        <Link href="/study-habit-analyzer">
+          <button className="bg-white text-indigo-600 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            ANALYZE HABITS
+          </button>
+        </Link>
+      </div>
+
+      {/* Citation Generator */}
+      <div className="bg-teal-500 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <Quote className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">CITATION GENERATOR</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">Generate accurate APA, MLA, or Chicago-style citations instantly.</p>
+        <Link href="/citation-generator">
+          <button className="bg-white text-teal-500 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            GENERATE CITATIONS
+          </button>
+        </Link>
+      </div>
+
+      {/* Reading Comprehension Trainer */}
+      <div className="bg-purple-600 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <Book className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">READING TRAINER</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">Improve comprehension with guided exercises and quizzes.</p>
+        <Link href="/reading-comprehension-trainer">
+          <button className="bg-white text-purple-600 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            TRAIN READING
+          </button>
+        </Link>
+      </div>
+
+      {/* Memory Game Generator */}
+      <div className="bg-pink-500 border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <Gamepad className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">MEMORY GAMES</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">Turn study content into fun, customizable memory and recall games.</p>
+        <Link href="/memory-game-generator">
+          <button className="bg-white text-pink-500 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            PLAY GAMES
+          </button>
+        </Link>
+      </div>
+
+      {/* Grammar Practice */}
+      <div className="bg-cyan-600 text-white border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <Type className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">GRAMMAR PRACTICE</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">Interactive exercises to master grammar rules and sentence structure.</p>
+        <Link href="/grammar-practice">
+          <button className="bg-white text-cyan-600 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            PRACTICE GRAMMAR
+          </button>
+        </Link>
+      </div>
+
+      {/* Study Break Planner */}
+      <div className="bg-green-500 border-4 sm:border-8 border-black p-4 sm:p-6 shadow-brutal">
+        <div className="flex items-center gap-3 mb-4">
+          <Coffee className="h-6 w-6 sm:h-8 sm:w-8 text-white flex-shrink-0" />
+          <h3 className="text-lg sm:text-xl font-black uppercase">BREAK PLANNER</h3>
+        </div>
+        <p className="text-base sm:text-lg mb-4">Schedule rejuvenating breaks to maintain focus and prevent burnout.</p>
+        <Link href="/study-break-planner">
+          <button className="bg-white text-green-500 border-2 sm:border-4 border-black px-3 sm:px-4 py-2 sm:py-3 font-bold text-sm sm:text-base shadow-brutal hover:translate-y-1 hover:shadow-none transition-all">
+            PLAN BREAKS
+          </button>
+        </Link>
+      </div>
+    </div>
+  </section>
+</TabsContent>
+      
       {/* Features Tab */}
       <TabsContent value="features" className="space-y-8 sm:space-y-12">
         <section className="space-y-6 sm:space-y-8">
