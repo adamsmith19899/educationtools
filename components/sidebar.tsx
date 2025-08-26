@@ -15,6 +15,12 @@ import {
   Lightbulb,
   Menu,
   X,
+  Activity,    // Added
+  Quote,       // Added
+  Book,        // Added
+  Gamepad,     // Added
+  Type,        // Added
+  Coffee,      // Added
 } from "lucide-react"
 import { useState } from "react"
 
@@ -29,6 +35,14 @@ const tools = [
   { name: "Study Goal Tracker", href: "/study-goal-tracker", icon: Target, color: "bg-emerald-500" },
   { name: "Note Summarizer", href: "/note-summarizer", icon: FileCheck, color: "bg-blue-600" },
   { name: "Mnemonic Generator", href: "/mnemonic-generator", icon: Lightbulb, color: "bg-yellow-500" },
+
+  // === NEW TOOLS ADDED BELOW ===
+  { name: "Study Habit Analyzer", href: "/study-habit-analyzer", icon: Activity, color: "bg-indigo-600" },
+  { name: "Citation Generator", href: "/citation-generator", icon: Quote, color: "bg-teal-500" },
+  { name: "Reading Comprehension Trainer", href: "/reading-comprehension-trainer", icon: Book, color: "bg-purple-600" },
+  { name: "Memory Game Generator", href: "/memory-game-generator", icon: Gamepad, color: "bg-pink-500" },
+  { name: "Grammar Practice", href: "/grammar-practice", icon: Type, color: "bg-cyan-600" },
+  { name: "Study Break Planner", href: "/study-break-planner", icon: Coffee, color: "bg-green-500" },
 ]
 
 export default function Sidebar() {
