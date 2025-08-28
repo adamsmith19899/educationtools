@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 import Sidebar from "@/components/sidebar"
 import ScrollToTop from "@/components/scroll-to-top"
 import Link from "next/link"
+import { Mail, MapPin } from "lucide-react"
 
 interface Source {
   id: string
