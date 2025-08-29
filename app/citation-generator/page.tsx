@@ -6,8 +6,8 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import Sidebar from "@/components/sidebar"
 import ScrollToTop from "@/components/scroll-to-top"
-import Header from "@/components/header"
-import Footer from "@/components/footer"
+import Header from "@/components/Header"  // ✅ Ensure this exists
+import Footer from "@/components/Footer"  // ✅ Ensure this exists
 
 interface Source {
   id: string
@@ -25,6 +25,7 @@ interface Source {
 }
 
 export default function CitationGenerator() {
+  const [darkMode, setDarkMode] = useState(false) // ✅ For Header toggle
   const [sources, setSources] = useState<Source[]>([])
   const [currentSource, setCurrentSource] = useState<Source | null>(null)
   const [citationStyle, setCitationStyle] = useState<"apa" | "mla" | "chicago">("apa")
@@ -213,19 +214,20 @@ export default function CitationGenerator() {
   }
 
   return (
-    <div className="min-h-screen bg-background font-mono">
+    // ✅ Single root container with flex layout
+    <div className={`flex flex-col min-h-screen bg-background font-mono ${darkMode ? 'dark' : ''}`}>
+      {/* ✅ Header with dark mode toggle */}
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+
+      {/* Sidebar & ScrollToTop */}
       <Sidebar />
       <ScrollToTop />
-      
-      {/* Header Component */}
-    <Header />
 
-    <div className="lg:pr-80 lg:pl-0 flex-1">
-      <div className="container py-8 px-6 flex flex-col min-h-screen">
-
-      <div className="lg:pr-80 lg:pl-0">
-        <div className="container py-8 px-6">
-          {/* Header with Schema Markup */}
+      {/* Main Content */}
+      <div className="lg:pr-80 lg:pl-0 flex-1">
+        <div className="container py-8 px-6 flex flex-col min-h-full">
+          
+          {/* Schema Structured Data */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -246,6 +248,7 @@ export default function CitationGenerator() {
             }}
           />
 
+          {/* Page Title */}
           <div className="mb-8">
             <div className="flex items-center gap-4 mb-4">
               <Clipboard className="h-8 w-8 text-blue-600" />
@@ -256,7 +259,8 @@ export default function CitationGenerator() {
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
+          {/* Grid Layout */}
+          <div className="grid gap-8 lg:grid-cols-2 flex-1">
             {/* Input Section */}
             <div className="space-y-6">
               <div className="bg-white dark:bg-gray-900 border-4 border-black p-6 shadow-brutal">
@@ -266,6 +270,7 @@ export default function CitationGenerator() {
 
                 {!isAdding ? (
                   <div className="space-y-4">
+                    {/* Source Type */}
                     <div>
                       <Label htmlFor="type" className="text-lg font-bold">
                         Source Type
@@ -284,6 +289,7 @@ export default function CitationGenerator() {
                       </select>
                     </div>
 
+                    {/* Title */}
                     <div>
                       <Label htmlFor="title" className="text-lg font-bold">
                         Title
@@ -298,6 +304,7 @@ export default function CitationGenerator() {
                       />
                     </div>
 
+                    {/* Author */}
                     <div>
                       <Label htmlFor="author" className="text-lg font-bold">
                         Author(s)
@@ -312,6 +319,7 @@ export default function CitationGenerator() {
                       />
                     </div>
 
+                    {/* Year & Publisher */}
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="year" className="text-lg font-bold">
@@ -341,6 +349,7 @@ export default function CitationGenerator() {
                       </div>
                     </div>
 
+                    {/* Website/Video Fields */}
                     {(sourceType === "website" || sourceType === "video") && (
                       <>
                         <div>
@@ -371,6 +380,7 @@ export default function CitationGenerator() {
                       </>
                     )}
 
+                    {/* Journal/Article Fields */}
                     {(sourceType === "journal" || sourceType === "article") && (
                       <>
                         <div>
@@ -441,6 +451,9 @@ export default function CitationGenerator() {
                   </div>
                 ) : (
                   <div className="space-y-4">
+                    {/* Edit Mode Form (same fields) */}
+                    {/* ... identical to above, just Update button */}
+                    {/* (kept for brevity, but you already have it) */}
                     <div>
                       <Label htmlFor="type" className="text-lg font-bold">
                         Source Type
@@ -615,7 +628,7 @@ export default function CitationGenerator() {
                 )}
               </div>
 
-              {/* How to Use Section */}
+              {/* How to Use */}
               <div className="bg-yellow-500 border-4 border-black p-6 shadow-brutal">
                 <h3 className="text-xl font-black mb-4 uppercase border-b-2 border-black pb-2">How to Use</h3>
                 <ol className="space-y-2 text-lg">
@@ -627,7 +640,7 @@ export default function CitationGenerator() {
                 </ol>
               </div>
 
-              {/* Tips Section */}
+              {/* Tips */}
               <div className="bg-lime-400 border-4 border-black p-6 shadow-brutal">
                 <h3 className="text-xl font-black mb-4 uppercase border-b-2 border-black pb-2">Citation Tips</h3>
                 <ul className="space-y-2 text-lg">
@@ -733,13 +746,13 @@ export default function CitationGenerator() {
                 </div>
               )}
 
-              {/* Description Section */}
+              {/* Description */}
               <div className="bg-blue-600 text-white border-4 border-black p-6 shadow-brutal">
                 <h3 className="text-xl font-black mb-4 uppercase border-b-2 border-white pb-2">Description</h3>
                 <p className="text-lg">
-                  The Citation Generator helps you create properly formatted citations in APA, MLA, and Chicago styles. 
-                  Simply enter your source information and select your preferred citation style to generate accurate 
-                  references for your academic papers, essays, and research projects. Save time and ensure consistency 
+                  The Citation Generator helps you create properly formatted citations in APA, MLA, and Chicago styles.
+                  Simply enter your source information and select your preferred citation style to generate accurate
+                  references for your academic papers, essays, and research projects. Save time and ensure consistency
                   in your bibliographies with this easy-to-use tool.
                 </p>
               </div>
@@ -747,8 +760,9 @@ export default function CitationGenerator() {
           </div>
         </div>
       </div>
-        {/* Footer Component */}
-    <Footer />
+
+      {/* ✅ Footer */}
+      <Footer />
     </div>
   )
 }
