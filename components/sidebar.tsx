@@ -49,7 +49,7 @@ export default function Sidebar() {
   const sidebarRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
 
-  // Close sidebar on Escape key
+  // Close on Escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
@@ -61,15 +61,11 @@ export default function Sidebar() {
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [isOpen])
 
-  // Focus trap inside sidebar when open
+  // Focus trap
   useEffect(() => {
     if (isOpen && sidebarRef.current) {
-      const focusableElements = sidebarRef.current.querySelectorAll(
-        'a[href], button:not([disabled])'
-      ) as NodeListOf<HTMLElement>
-      if (focusableElements.length > 0) {
-        focusableElements[0].focus()
-      }
+      const focusable = sidebarRef.current.querySelectorAll('a, button') as NodeListOf<HTMLElement>
+      focusable[0]?.focus()
     }
   }, [isOpen])
 
@@ -89,30 +85,26 @@ export default function Sidebar() {
       <aside
         ref={sidebarRef}
         className={`
-          fixed top-16 bottom-0 lg:top-0 lg:bottom-0
-          right-0 h-full w-80 bg-white dark:bg-gray-900 border-l-8 border-black z-40
+          fixed top-0 right-0 h-full w-80 lg:w-64 bg-white dark:bg-gray-900 border-l-8 border-black z-40
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"}
+          lg:translate-x-0  /* Always visible on desktop */
         `}
-        style={{ maxHeight: 'calc(100vh - 4rem)' }}
-        aria-hidden={!isOpen}
-        tabIndex={isOpen ? 0 : -1}
+        style={{
+          maxHeight: '100vh',
+          height: '100vh',
+        }}
+        aria-label="Navigation Sidebar"
       >
-        <div className="p-6 border-b-4 border-black">
-          <Link href="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
-            <div className="h-8 w-8 bg-yellow-500 border-4 border-black rotate-12"></div>
-            <div className="h-8 w-8 bg-blue-600 border-4 border-black -ml-4 -rotate-12"></div>
-            <span className="font-black text-xl tracking-tighter ml-2 text-black dark:text-white">
-              USNEWSE
-            </span>
-          </Link>
-        </div>
+        {/* Removed: Logo/Header Section */}
+        {/* Now starts directly with the tools list */}
 
-        <nav className="p-6 h-[calc(100%-80px)] overflow-y-auto" aria-label="Main Navigation">
-          <h2 className="text-lg font-black uppercase mb-6 border-b-2 border-black dark:border-white pb-2 text-black dark:text-white">
+        <nav className="h-full flex flex-col">
+          <h2 className="text-lg font-black uppercase px-6 py-4 border-b-4 border-black dark:border-white text-black dark:text-white">
             Study Tools
           </h2>
-          <ul className="space-y-3">
+
+          <ul className="flex-1 overflow-y-auto p-6 space-y-3">
             {tools.map((tool) => {
               const Icon = tool.icon
               const isActive = pathname === tool.href
@@ -124,6 +116,7 @@ export default function Sidebar() {
                     onClick={() => setIsOpen(false)}
                     className={`
                       flex items-center gap-3 p-3 border-2 border-black font-bold text-sm transition-all
+                      rounded-lg
                       ${
                         isActive
                           ? `${tool.color} text-white shadow-brutal`
@@ -146,7 +139,6 @@ export default function Sidebar() {
         <div
           className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-30"
           onClick={() => setIsOpen(false)}
-          onKeyDown={(e) => e.key === "Escape" && setIsOpen(false)}
           role="button"
           tabIndex={0}
           aria-label="Close sidebar"
