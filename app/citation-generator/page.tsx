@@ -6,8 +6,8 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import Sidebar from "@/components/sidebar"
 import ScrollToTop from "@/components/scroll-to-top"
-import Header from "@/components/Header"  // ✅ Ensure this exists
-import Footer from "@/components/Footer"  // ✅ Ensure this exists
+import Header from "@/components/header"  // ✅ Ensure this exists
+import Footer from "@/components/footer"  // ✅ Ensure this exists
 
 interface Source {
   id: string
