@@ -74,7 +74,7 @@ export default function CitationGenerator() {
           case "website":
             return `${formattedAuthor}. "<em>${source.title}</em>." ${source.publisher}, ${source.year}, ${source.url}. Accessed ${source.accessedDate}.`
           case "video":
-            return `${formattedAuthor}. "<em>${source.title}</em>." ${source.publisher}, ${source.year}, ${source.url}.`
+             `${formattedAuthor}. "<em>${source.title}</em>." ${source.publisher}, ${source.year}, ${source.url}.`
           default:
             return source.title
         }
@@ -214,13 +214,12 @@ export default function CitationGenerator() {
   }
 
   return (
-    // ✅ Single root container with flex layout
-    <div className={`flex flex-col min-h-screen bg-background font-mono ${darkMode ? 'dark' : ''}`}>
-      {/* ✅ Header with dark mode toggle */}
-      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+    <div className={`min-h-screen bg-background font-mono ${darkMode ? 'dark' : ''}`}>
+    <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
-      {/* Sidebar & ScrollToTop */}
-      <Sidebar className="fixed top-16 bottom-14 z-10" />
+    <div className="relative">
+      <div className="lg:pr-80 lg:pl-0 flex-1">
+        <div className="container py-8 px-6 min-h-screen">
       <ScrollToTop />
 
       {/* Main Content */}
