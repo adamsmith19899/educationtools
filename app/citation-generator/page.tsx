@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import Sidebar from "@/components/sidebar"
 import ScrollToTop from "@/components/scroll-to-top"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
 
 interface Source {
   id: string
@@ -214,6 +216,12 @@ export default function CitationGenerator() {
     <div className="min-h-screen bg-background font-mono">
       <Sidebar />
       <ScrollToTop />
+      
+      {/* Header Component */}
+    <Header />
+
+    <div className="lg:pr-80 lg:pl-0 flex-1">
+      <div className="container py-8 px-6 flex flex-col min-h-screen">
 
       <div className="lg:pr-80 lg:pl-0">
         <div className="container py-8 px-6">
@@ -739,6 +747,8 @@ export default function CitationGenerator() {
           </div>
         </div>
       </div>
+        {/* Footer Component */}
+    <Footer />
     </div>
   )
 }
