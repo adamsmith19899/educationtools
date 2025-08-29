@@ -220,7 +220,7 @@ export default function CitationGenerator() {
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
       {/* Sidebar & ScrollToTop */}
-      <Sidebar />
+      <Sidebar className="fixed top-16 bottom-14 z-10" />
       <ScrollToTop />
 
       {/* Main Content */}
