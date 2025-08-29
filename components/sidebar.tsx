@@ -22,7 +22,7 @@ import {
   Type,
   Coffee,
 } from "lucide-react"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 
 const tools = [
   { name: "Flashcard Generator", href: "/flashcard-generator", icon: BookOpen, color: "bg-blue-600" },
@@ -46,36 +46,12 @@ const tools = [
 export default function Sidebar() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
-  const sidebarRef = useRef<HTMLDivElement>(null)
-  const buttonRef = useRef<HTMLButtonElement>(null)
-
-  // Close on Escape
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        setIsOpen(false)
-        buttonRef.current?.focus()
-      }
-    }
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [isOpen])
-
-  // Focus trap
-  useEffect(() => {
-    if (isOpen && sidebarRef.current) {
-      const focusable = sidebarRef.current.querySelectorAll('a, button') as NodeListOf<HTMLElement>
-      focusable[0]?.focus()
-    }
-  }, [isOpen])
 
   return (
     <>
       {/* Mobile Menu Button */}
       <button
-        ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
-        aria-label={isOpen ? "Close menu" : "Open menu"}
         className="lg:hidden fixed top-4 right-4 z-50 bg-yellow-500 border-4 border-black p-2 shadow-brutal"
       >
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -83,22 +59,18 @@ export default function Sidebar() {
 
       {/* Sidebar */}
       <aside
-        ref={sidebarRef}
         className={`
-          fixed top-0 right-0 h-full w-80 lg:w-64 bg-white dark:bg-gray-900 border-l-8 border-black z-40
+          fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-900 border-l-8 border-black z-40
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"}
-          lg:translate-x-0  /* Always visible on desktop */
+          lg:translate-x-0
         `}
         style={{
-          maxHeight: '100vh',
           height: '100vh',
+          maxHeight: '100vh',
+          overflowY: 'auto',
         }}
-        aria-label="Navigation Sidebar"
       >
-        {/* Removed: Logo/Header Section */}
-        {/* Now starts directly with the tools list */}
-
         <nav className="h-full flex flex-col">
           <h2 className="text-lg font-black uppercase px-6 py-4 border-b-4 border-black dark:border-white text-black dark:text-white">
             Study Tools
@@ -139,9 +111,6 @@ export default function Sidebar() {
         <div
           className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-30"
           onClick={() => setIsOpen(false)}
-          role="button"
-          tabIndex={0}
-          aria-label="Close sidebar"
         />
       )}
     </>
