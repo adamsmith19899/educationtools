@@ -220,12 +220,12 @@ export default function CitationGenerator() {
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
       {/* Sidebar & ScrollToTop */}
-      <Sidebar className="fixed top-16 bottom-14 z-10" />
+      <Sidebar className="hidden lg:block fixed top-16 left-0 bottom-14 w-80 z-10" />
       <ScrollToTop />
 
       {/* Main Content */}
-      <div className="lg:pr-80 lg:pl-0 flex-1">
-        <div className="container py-8 px-6 flex flex-col min-h-full">
+      <div className="flex-1 lg:pl-80">
+       <div className="container py-8 px-6 flex flex-col min-h-full"> 
           
           {/* Schema Structured Data */}
           <script
