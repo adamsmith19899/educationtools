@@ -60,7 +60,7 @@ export default function ToolFooter() {
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-cyan-400" />
-                <span className="text-lg">hello@informi.online</span>
+                <span className="text-lg">contact@usnewse.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-lime-400" />
@@ -76,7 +76,7 @@ export default function ToolFooter() {
 
         {/* Bottom Bar */}
         <div className="border-t-4 border-white mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-lg">© 2024 INFORMI EDUCATION ONLINE. ALL RIGHTS RESERVED.</p>
+          <p className="text-lg">© 2025 USNEWSE.COM. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-6">
             <Link href="#" className="text-lg hover:text-yellow-500 transition-colors">
               Privacy Policy
