@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { BookOpen, Calculator } from "lucide-react"
 
-export default function ToolHeader() {
+export default function ToolHeader() { 
   return (
     <header className="sticky top-0 z-40 w-full border-b-8 border-black bg-primary">
       <div className="container flex h-20 items-center justify-between">
