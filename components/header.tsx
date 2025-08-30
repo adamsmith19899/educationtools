@@ -13,7 +13,7 @@ export default function ToolHeader() {
             <div className="h-12 w-12 bg-blue-600 border-4 border-black -ml-6 -rotate-12 flex items-center justify-center">
               <Calculator className="h-6 w-6 text-white" />
             </div>
-            <span className="font-black text-2xl tracking-tighter ml-4 text-white">INFORMI.ONLINE</span>
+            <span className="font-black text-2xl tracking-tighter ml-4 text-white">Universal Study & Education</span>
           </Link>
         </div>
 
