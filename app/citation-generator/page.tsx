@@ -4,10 +4,10 @@ import { useState } from "react"
 import { BookOpen, Plus, RotateCcw, X, Shuffle, Download, Clipboard, Book, User, Calendar } from "lucide-react"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import Sidebar from "@/components/sidebar"
+import Sidebar from "@/components/tool-sidebar"
 import ScrollToTop from "@/components/scroll-to-top"
-import Header from "@/components/header"  // ✅ Ensure this exists
-import Footer from "@/components/footer"  // ✅ Ensure this exists
+import Header from "@/components/tool-header"  // ✅ Ensure this exists
+import Footer from "@/components/tool-footer"  // ✅ Ensure this exists
 
 interface Source {
   id: string
