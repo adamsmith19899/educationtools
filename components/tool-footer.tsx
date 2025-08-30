@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { BookOpen, Calculator, Mail, Phone, MapPin } from "lucide-react"
 
-export default function ToolFooter() {
+export default function ToolFooter() { 
   return (
     <footer className="bg-black text-white py-16">
       <div className="container">
