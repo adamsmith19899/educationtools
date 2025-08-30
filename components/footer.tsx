@@ -15,7 +15,7 @@ export default function ToolFooter() {
               <div className="h-12 w-12 bg-blue-600 border-4 border-white -ml-6 -rotate-12 flex items-center justify-center">
                 <Calculator className="h-6 w-6 text-white" />
               </div>
-              <span className="font-black text-2xl tracking-tighter ml-4">INFORMI.ONLINE</span>
+              <span className="font-black text-2xl tracking-tighter ml-4">Universal Study & Education</span>
             </div>
             <p className="text-lg mb-6 max-w-md">
               Empowering students worldwide with innovative educational technology and AI-powered study tools.
