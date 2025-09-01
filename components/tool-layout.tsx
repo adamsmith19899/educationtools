@@ -5,7 +5,7 @@ import type React from "react"
 import ToolHeader from "./tool-header"
 import ToolSidebar from "./tool-sidebar"
 import ToolFooter from "./tool-footer"
- 
+
 interface ToolLayoutProps {
   children: React.ReactNode
   toolName?: string
