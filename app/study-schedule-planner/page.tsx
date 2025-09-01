@@ -1,11 +1,18 @@
-"use client"
-
+import { ToolLayout } from "@/components/tool-layout"
 import { useState } from "react"
 import { Clock, Plus, Calendar, Trash2, Edit3, CheckCircle } from "lucide-react"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import Sidebar from "@/components/sidebar"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Study Schedule Planner - Organize Your Study Time | Informi Education Online",
+  description:
+    "Plan and organize your study sessions with intelligent scheduling and time management. Track progress, set priorities, and boost productivity.",
+  keywords:
+    "study schedule planner, study planner, time management, academic planning, exam preparation, study organizer, student tools",
+}
 
 interface StudySession {
   id: string
@@ -109,263 +116,176 @@ export default function StudySchedulePlanner() {
   }
 
   return (
-    <div className="min-h-screen bg-background font-mono">
-      <Sidebar />
-
-      <div className="lg:pr-80 lg:pl-0">
-        <div className="container py-8 px-6">
-          {/* Header with Schema Markup */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "WebApplication",
-                name: "Study Schedule Planner",
-                description: "Plan and organize your study sessions with intelligent scheduling and time management",
-                url: "https://usnewse.com/study-schedule-planner",
-                applicationCategory: "EducationalApplication",
-                operatingSystem: "Web Browser",
-                offers: {
-                  "@type": "Offer",
-                  price: "0",
-                  priceCurrency: "USD",
-                },
-              }),
-            }}
-          />
-
-          <div className="mb-8">
-            <div className="flex items-center gap-4 mb-4">
-              <Clock className="h-8 w-8 text-yellow-500" />
-              <h1 className="text-4xl font-black uppercase tracking-tighter">Study Schedule Planner</h1>
-            </div>
-            <p className="text-xl text-muted-foreground">
-              Plan and organize your study sessions with intelligent scheduling
-            </p>
-          </div>
-
-          {/* Stats Dashboard */}
-          <div className="grid gap-6 md:grid-cols-4 mb-8">
-            <div className="bg-blue-600 text-white border-4 border-black p-4 shadow-brutal">
-              <div className="text-2xl font-black">{sessions.length}</div>
-              <div className="text-sm font-bold">Total Sessions</div>
-            </div>
-            <div className="bg-green-500 text-white border-4 border-black p-4 shadow-brutal">
-              <div className="text-2xl font-black">{getCompletedSessions()}</div>
-              <div className="text-sm font-bold">Completed</div>
-            </div>
-            <div className="bg-yellow-500 text-black border-4 border-black p-4 shadow-brutal">
-              <div className="text-2xl font-black">{getTodaysSessions().length}</div>
-              <div className="text-sm font-bold">Today's Sessions</div>
-            </div>
-            <div className="bg-red-600 text-white border-4 border-black p-4 shadow-brutal">
-              <div className="text-2xl font-black">{Math.round(getTotalStudyTime() / 60)}h</div>
-              <div className="text-sm font-bold">Total Hours</div>
-            </div>
-          </div>
-
-          <div className="grid gap-8 lg:grid-cols-2">
-            {/* Create/Edit Session Form */}
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <button
-                  onClick={() => {
-                    setShowForm(!showForm)
-                    setEditingId(null)
-                    setFormData({
-                      subject: "",
-                      topic: "",
-                      duration: 60,
-                      date: "",
-                      time: "",
-                      priority: "medium",
-                      notes: "",
-                    })
-                  }}
-                  className="bg-yellow-500 text-black border-4 border-black px-6 py-3 font-bold text-lg shadow-brutal hover:translate-y-1 hover:shadow-none transition-all"
-                >
-                  <Plus className="h-5 w-5 inline mr-2" />
-                  {showForm ? "Cancel" : "Add Session"}
-                </button>
+    <ToolLayout toolName="Study Schedule Planner">
+      <div className="space-y-8">
+        {/* Tool Interface */}
+        <div className="bg-white border-4 border-black p-6">
+          <div className="space-y-6">
+            {/* Stats Dashboard */}
+            <div className="grid gap-6 md:grid-cols-4">
+              <div className="bg-blue-600 text-white border-4 border-black p-4">
+                <div className="text-2xl font-black">{sessions.length}</div>
+                <div className="text-sm font-bold">Total Sessions</div>
               </div>
+              <div className="bg-green-500 text-white border-4 border-black p-4">
+                <div className="text-2xl font-black">{getCompletedSessions()}</div>
+                <div className="text-sm font-bold">Completed</div>
+              </div>
+              <div className="bg-yellow-500 text-black border-4 border-black p-4">
+                <div className="text-2xl font-black">{getTodaysSessions().length}</div>
+                <div className="text-sm font-bold">Today's Sessions</div>
+              </div>
+              <div className="bg-red-600 text-white border-4 border-black p-4">
+                <div className="text-2xl font-black">{Math.round(getTotalStudyTime() / 60)}h</div>
+                <div className="text-sm font-bold">Total Hours</div>
+              </div>
+            </div>
+
+            {/* Create/Edit Session Form */}
+            <div className="space-y-4">
+              <button
+                onClick={() => {
+                  setShowForm(!showForm)
+                  setEditingId(null)
+                  setFormData({
+                    subject: "",
+                    topic: "",
+                    duration: 60,
+                    date: "",
+                    time: "",
+                    priority: "medium",
+                    notes: "",
+                  })
+                }}
+                className="w-full bg-accent text-black p-3 border-2 border-black font-bold text-lg hover:bg-secondary transition-colors"
+              >
+                <Plus className="h-5 w-5 inline mr-2" />
+                {showForm ? "Cancel" : "Add Session"}
+              </button>
 
               {showForm && (
-                <div className="bg-white dark:bg-gray-900 border-4 border-black p-6 shadow-brutal">
-                  <h2 className="text-2xl font-black mb-6 uppercase border-b-2 border-black dark:border-white pb-2">
+                <div className="bg-gray-50 border-2 border-black p-4 space-y-4">
+                  <h2 className="text-xl font-bold border-b-2 border-black pb-2">
                     {editingId ? "Edit Session" : "Create New Session"}
                   </h2>
 
-                  <div className="space-y-4">
-                    <div className="grid gap-4 md:grid-cols-2">
-                      <div>
-                        <Label htmlFor="subject" className="text-lg font-bold">
-                          Subject
-                        </Label>
-                        <Input
-                          id="subject"
-                          placeholder="e.g., Mathematics"
-                          value={formData.subject}
-                          onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                          className="border-2 border-black h-12 text-lg font-mono shadow-brutal"
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="topic" className="text-lg font-bold">
-                          Topic
-                        </Label>
-                        <Input
-                          id="topic"
-                          placeholder="e.g., Calculus Integration"
-                          value={formData.topic}
-                          onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
-                          className="border-2 border-black h-12 text-lg font-mono shadow-brutal"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid gap-4 md:grid-cols-3">
-                      <div>
-                        <Label htmlFor="date" className="text-lg font-bold">
-                          Date
-                        </Label>
-                        <Input
-                          id="date"
-                          type="date"
-                          value={formData.date}
-                          onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                          className="border-2 border-black h-12 text-lg font-mono shadow-brutal"
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="time" className="text-lg font-bold">
-                          Time
-                        </Label>
-                        <Input
-                          id="time"
-                          type="time"
-                          value={formData.time}
-                          onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                          className="border-2 border-black h-12 text-lg font-mono shadow-brutal"
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="duration" className="text-lg font-bold">
-                          Duration (min)
-                        </Label>
-                        <Input
-                          id="duration"
-                          type="number"
-                          min="15"
-                          max="480"
-                          step="15"
-                          value={formData.duration}
-                          onChange={(e) => setFormData({ ...formData, duration: Number.parseInt(e.target.value) })}
-                          className="border-2 border-black h-12 text-lg font-mono shadow-brutal"
-                        />
-                      </div>
-                    </div>
-
+                  <div className="grid gap-4 md:grid-cols-2">
                     <div>
-                      <Label className="text-lg font-bold">Priority</Label>
-                      <div className="flex gap-2 mt-2">
-                        {(["low", "medium", "high"] as const).map((level) => (
-                          <button
-                            key={level}
-                            onClick={() => setFormData({ ...formData, priority: level })}
-                            className={`px-4 py-2 border-2 border-black font-bold text-sm uppercase transition-all ${
-                              formData.priority === level
-                                ? level === "low"
-                                  ? "bg-green-500 text-white"
-                                  : level === "medium"
-                                    ? "bg-yellow-500 text-black"
-                                    : "bg-red-600 text-white"
-                                : "bg-white dark:bg-gray-800 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                            }`}
-                          >
-                            {level}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="notes" className="text-lg font-bold">
-                        Notes (Optional)
-                      </Label>
-                      <Textarea
-                        id="notes"
-                        placeholder="Additional notes or goals for this session..."
-                        value={formData.notes}
-                        onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                        className="border-2 border-black h-20 text-lg font-mono shadow-brutal resize-none"
+                      <Label htmlFor="subject" className="block text-lg font-bold mb-1">Subject</Label>
+                      <Input
+                        id="subject"
+                        placeholder="e.g., Mathematics"
+                        value={formData.subject}
+                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                        className="border-2 border-black h-12 text-lg font-mono"
                       />
                     </div>
-
-                    <button
-                      onClick={addOrUpdateSession}
-                      disabled={!formData.subject.trim() || !formData.topic.trim() || !formData.date || !formData.time}
-                      className="w-full bg-blue-600 text-white border-4 border-black px-6 py-3 font-bold text-lg shadow-brutal hover:translate-y-1 hover:shadow-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {editingId ? "Update Session" : "Create Session"}
-                    </button>
+                    <div>
+                      <Label htmlFor="topic" className="block text-lg font-bold mb-1">Topic</Label>
+                      <Input
+                        id="topic"
+                        placeholder="e.g., Calculus Integration"
+                        value={formData.topic}
+                        onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
+                        className="border-2 border-black h-12 text-lg font-mono"
+                      />
+                    </div>
                   </div>
+
+                  <div className="grid gap-4 md:grid-cols-3">
+                    <div>
+                      <Label htmlFor="date" className="block text-lg font-bold mb-1">Date</Label>
+                      <Input
+                        id="date"
+                        type="date"
+                        value={formData.date}
+                        onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                        className="border-2 border-black h-12 text-lg font-mono"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="time" className="block text-lg font-bold mb-1">Time</Label>
+                      <Input
+                        id="time"
+                        type="time"
+                        value={formData.time}
+                        onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                        className="border-2 border-black h-12 text-lg font-mono"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="duration" className="block text-lg font-bold mb-1">Duration (min)</Label>
+                      <Input
+                        id="duration"
+                        type="number"
+                        min="15"
+                        max="480"
+                        step="15"
+                        value={formData.duration}
+                        onChange={(e) => setFormData({ ...formData, duration: parseInt(e.target.value) })}
+                        className="border-2 border-black h-12 text-lg font-mono"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label className="block text-lg font-bold mb-2">Priority</Label>
+                    <div className="flex gap-2">
+                      {(["low", "medium", "high"] as const).map((level) => (
+                        <button
+                          key={level}
+                          onClick={() => setFormData({ ...formData, priority: level })}
+                          className={`px-4 py-2 border-2 border-black font-bold text-sm uppercase ${
+                            formData.priority === level
+                              ? level === "low"
+                                ? "bg-green-500 text-white"
+                                : level === "medium"
+                                  ? "bg-yellow-500 text-black"
+                                  : "bg-red-600 text-white"
+                              : "bg-white text-black hover:bg-gray-100"
+                          }`}
+                        >
+                          {level}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="notes" className="block text-lg font-bold mb-1">Notes (Optional)</Label>
+                    <Textarea
+                      id="notes"
+                      placeholder="Additional notes or goals for this session..."
+                      value={formData.notes}
+                      onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                      className="border-2 border-black h-20 text-lg font-mono resize-none"
+                    />
+                  </div>
+
+                  <button
+                    onClick={addOrUpdateSession}
+                    disabled={!formData.subject.trim() || !formData.topic.trim() || !formData.date || !formData.time}
+                    className="w-full bg-primary text-white border-2 border-black p-3 font-bold hover:bg-secondary transition-colors disabled:opacity-50"
+                  >
+                    {editingId ? "Update Session" : "Create Session"}
+                  </button>
                 </div>
               )}
 
-              {/* How to Use Section */}
-              <div className="bg-yellow-500 border-4 border-black p-6 shadow-brutal">
-                <h3 className="text-xl font-black mb-4 uppercase border-b-2 border-black pb-2">How to Use</h3>
-                <ol className="space-y-2 text-lg">
-                  <li>
-                    <strong>1.</strong> Click "Add Session" to create new study sessions
-                  </li>
-                  <li>
-                    <strong>2.</strong> Fill in subject, topic, date, and time
-                  </li>
-                  <li>
-                    <strong>3.</strong> Set duration and priority level
-                  </li>
-                  <li>
-                    <strong>4.</strong> Add optional notes for context
-                  </li>
-                  <li>
-                    <strong>5.</strong> Mark sessions complete when finished
-                  </li>
-                </ol>
-              </div>
-
-              {/* Tips Section */}
-              <div className="bg-lime-400 border-4 border-black p-6 shadow-brutal">
-                <h3 className="text-xl font-black mb-4 uppercase border-b-2 border-black pb-2">Planning Tips</h3>
-                <ul className="space-y-2 text-lg">
-                  <li>• Schedule high-priority subjects during peak focus hours</li>
-                  <li>• Break long topics into 45-90 minute sessions</li>
-                  <li>• Include 10-15 minute breaks between sessions</li>
-                  <li>• Review and adjust your schedule weekly</li>
-                  <li>• Balance different subjects throughout the week</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Sessions List */}
-            <div className="space-y-6">
-              {/* Today's Sessions */}
-              {getTodaysSessions().length > 0 && (
-                <div className="bg-white dark:bg-gray-900 border-4 border-black p-6 shadow-brutal">
-                  <h3 className="text-xl font-black mb-4 uppercase border-b-2 border-black dark:border-white pb-2">
-                    Today's Sessions
-                  </h3>
-                  <div className="space-y-3">
+              {/* Sessions List */}
+              <div className="space-y-4">
+                {getTodaysSessions().length > 0 && (
+                  <div className="border-2 border-black p-4 bg-gray-50">
+                    <h3 className="font-bold text-lg mb-3">Today's Sessions</h3>
                     {getTodaysSessions().map((session) => (
                       <div
                         key={session.id}
-                        className={`border-2 border-black p-4 ${
-                          session.completed ? "bg-green-100 dark:bg-green-900" : "bg-gray-50 dark:bg-gray-800"
+                        className={`border-2 border-black p-3 mb-3 ${
+                          session.completed ? "bg-green-100" : "bg-white"
                         }`}
                       >
                         <div className="flex justify-between items-start mb-2">
-                          <div className="flex items-center gap-2">
+                          <div className="flex gap-2">
                             <span
                               className={`px-2 py-1 text-xs font-bold border border-black ${
                                 session.priority === "low"
@@ -377,10 +297,10 @@ export default function StudySchedulePlanner() {
                             >
                               {session.priority.toUpperCase()}
                             </span>
-                            <span className="text-sm font-bold">{session.time}</span>
+                            <span className="font-bold text-sm">{session.time}</span>
                             <span className="text-sm">({session.duration}min)</span>
                           </div>
-                          <div className="flex gap-2">
+                          <div className="flex gap-1">
                             <button
                               onClick={() => toggleComplete(session.id)}
                               className={`p-1 border border-black ${
@@ -391,104 +311,137 @@ export default function StudySchedulePlanner() {
                             </button>
                             <button
                               onClick={() => editSession(session)}
-                              className="bg-blue-600 text-white border border-black p-1 hover:bg-blue-700 transition-colors"
+                              className="bg-blue-600 text-white border border-black p-1"
                             >
                               <Edit3 className="h-4 w-4" />
                             </button>
                             <button
                               onClick={() => deleteSession(session.id)}
-                              className="bg-red-600 text-white border border-black p-1 hover:bg-red-700 transition-colors"
+                              className="bg-red-600 text-white border border-black p-1"
                             >
                               <Trash2 className="h-4 w-4" />
                             </button>
                           </div>
                         </div>
-                        <div className="font-bold text-lg">{session.subject}</div>
-                        <div className="text-sm mb-2">{session.topic}</div>
-                        {session.notes && (
-                          <div className="text-sm text-gray-600 dark:text-gray-400">{session.notes}</div>
-                        )}
+                        <div className="font-bold">{session.subject}</div>
+                        <div className="text-sm text-gray-700">{session.topic}</div>
+                        {session.notes && <div className="text-sm mt-1">{session.notes}</div>}
                       </div>
                     ))}
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Upcoming Sessions */}
-              {getUpcomingSessions().length > 0 && (
-                <div className="bg-white dark:bg-gray-900 border-4 border-black p-6 shadow-brutal">
-                  <h3 className="text-xl font-black mb-4 uppercase border-b-2 border-black dark:border-white pb-2">
-                    Upcoming Sessions
-                  </h3>
-                  <div className="space-y-3 max-h-96 overflow-y-auto">
-                    {getUpcomingSessions()
-                      .slice(0, 10)
-                      .map((session) => (
-                        <div key={session.id} className="border-2 border-black p-4 bg-gray-50 dark:bg-gray-800">
-                          <div className="flex justify-between items-start mb-2">
-                            <div className="flex items-center gap-2">
-                              <span
-                                className={`px-2 py-1 text-xs font-bold border border-black ${
-                                  session.priority === "low"
-                                    ? "bg-green-500 text-white"
-                                    : session.priority === "medium"
-                                      ? "bg-yellow-500 text-black"
-                                      : "bg-red-600 text-white"
-                                }`}
-                              >
-                                {session.priority.toUpperCase()}
-                              </span>
-                              <span className="text-sm font-bold">{session.date}</span>
-                              <span className="text-sm">{session.time}</span>
-                              <span className="text-sm">({session.duration}min)</span>
-                            </div>
-                            <div className="flex gap-2">
-                              <button
-                                onClick={() => editSession(session)}
-                                className="bg-blue-600 text-white border border-black p-1 hover:bg-blue-700 transition-colors"
-                              >
-                                <Edit3 className="h-4 w-4" />
-                              </button>
-                              <button
-                                onClick={() => deleteSession(session.id)}
-                                className="bg-red-600 text-white border border-black p-1 hover:bg-red-700 transition-colors"
-                              >
-                                <Trash2 className="h-4 w-4" />
-                              </button>
-                            </div>
+                {getUpcomingSessions().length > 0 && (
+                  <div className="border-2 border-black p-4 bg-gray-50">
+                    <h3 className="font-bold text-lg mb-3">Upcoming Sessions</h3>
+                    {getUpcomingSessions().slice(0, 10).map((session) => (
+                      <div key={session.id} className="border-2 border-black p-3 mb-3 bg-white">
+                        <div className="flex justify-between items-start mb-2">
+                          <div className="flex gap-2">
+                            <span
+                              className={`px-2 py-1 text-xs font-bold border border-black ${
+                                session.priority === "low"
+                                  ? "bg-green-500 text-white"
+                                  : session.priority === "medium"
+                                    ? "bg-yellow-500 text-black"
+                                    : "bg-red-600 text-white"
+                              }`}
+                            >
+                              {session.priority.toUpperCase()}
+                            </span>
+                            <span className="font-bold text-sm">{session.date}</span>
+                            <span className="text-sm">{session.time}</span>
+                            <span className="text-sm">({session.duration}min)</span>
                           </div>
-                          <div className="font-bold text-lg">{session.subject}</div>
-                          <div className="text-sm mb-2">{session.topic}</div>
-                          {session.notes && (
-                            <div className="text-sm text-gray-600 dark:text-gray-400">{session.notes}</div>
-                          )}
+                          <div className="flex gap-1">
+                            <button
+                              onClick={() => editSession(session)}
+                              className="bg-blue-600 text-white border border-black p-1"
+                            >
+                              <Edit3 className="h-4 w-4" />
+                            </button>
+                            <button
+                              onClick={() => deleteSession(session.id)}
+                              className="bg-red-600 text-white border border-black p-1"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </button>
+                          </div>
                         </div>
-                      ))}
+                        <div className="font-bold">{session.subject}</div>
+                        <div className="text-sm text-gray-700">{session.topic}</div>
+                        {session.notes && <div className="text-sm mt-1">{session.notes}</div>}
+                      </div>
+                    ))}
                   </div>
-                </div>
-              )}
+                )}
 
-              {sessions.length === 0 && (
-                <div className="bg-gray-100 dark:bg-gray-800 border-4 border-black p-8 shadow-brutal text-center">
-                  <Calendar className="h-16 w-16 mx-auto mb-4 text-gray-400" />
-                  <h3 className="text-xl font-bold mb-2">No study sessions scheduled</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Create your first study session to get started!</p>
-                </div>
-              )}
-
-              {/* Description Section */}
-              <div className="bg-blue-600 text-white border-4 border-black p-6 shadow-brutal">
-                <h3 className="text-xl font-black mb-4 uppercase border-b-2 border-white pb-2">Description</h3>
-                <p className="text-lg">
-                  The Study Schedule Planner helps you organize and manage your study sessions effectively. Set
-                  priorities, track completion, and maintain a consistent study routine. Perfect for exam preparation,
-                  course planning, and time management.
-                </p>
+                {sessions.length === 0 && (
+                  <div className="border-2 border-black p-8 text-center bg-gray-50">
+                    <Calendar className="h-12 w-12 mx-auto mb-3 text-gray-500" />
+                    <p className="text-lg font-bold">No study sessions scheduled</p>
+                    <p className="text-gray-600">Create your first session to get started!</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
+
+        {/* How to Use */}
+        <div className="bg-secondary border-4 border-black p-6">
+          <h2 className="text-2xl font-bold mb-4 border-b-4 border-black pb-2">HOW TO USE</h2>
+          <ol className="space-y-3 text-lg">
+            <li>
+              <strong>1. Add Session:</strong> Click "Add Session" to create a new study block
+            </li>
+            <li>
+              <strong>2. Fill Details:</strong> Enter subject, topic, date, time, and duration
+            </li>
+            <li>
+              <strong>3. Set Priority:</strong> Choose low, medium, or high based on importance
+            </li>
+            <li>
+              <strong>4. Track Progress:</strong> Mark sessions as complete when finished
+            </li>
+            <li>
+              <strong>5. Review Schedule:</strong> View today's and upcoming sessions for planning
+            </li>
+          </ol>
+        </div>
+
+        {/* Description */}
+        <div className="bg-accent border-4 border-black p-6">
+          <h2 className="text-2xl font-bold mb-4 border-b-4 border-black pb-2">DESCRIPTION</h2>
+          <p className="text-lg leading-relaxed">
+            The Study Schedule Planner helps students organize and manage their study time effectively. Set priorities,
+            track completed sessions, and visualize your weekly plan. Ideal for exam prep, course management, and
+            building consistent study habits. Improve focus and academic performance with structured time management.
+          </p>
+        </div>
+
+        {/* Tips */}
+        <div className="bg-white border-4 border-black p-6">
+          <h2 className="text-2xl font-bold mb-4 border-b-4 border-black pb-2">TIPS</h2>
+          <ul className="space-y-3 text-lg">
+            <li>
+              <strong>Plan Ahead:</strong> Schedule sessions at least one week in advance
+            </li>
+            <li>
+              <strong>Use Priorities:</strong> Focus on high-priority topics during peak energy hours
+            </li>
+            <li>
+              <strong>Break It Down:</strong> Divide large subjects into focused 60-90 minute sessions
+            </li>
+            <li>
+              <strong>Take Breaks:</strong> Include 10-minute breaks between sessions to recharge
+            </li>
+            <li>
+              <strong>Stay Consistent:</strong> Review and update your schedule daily for best results
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </ToolLayout>
   )
 }
