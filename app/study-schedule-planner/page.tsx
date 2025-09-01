@@ -1,3 +1,5 @@
+'use client'
+
 import { ToolLayout } from "@/components/tool-layout"
 import { useState } from "react"
 import { Clock, Plus, Calendar, Trash2, Edit3, CheckCircle } from "lucide-react"
