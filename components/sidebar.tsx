@@ -52,14 +52,8 @@ export default function Sidebar() {
         ${isOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"}
       `}
       >
-        <div className="p-6 border-b-4 border-black">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="h-8 w-8 bg-yellow-500 border-4 border-black rotate-12"></div>
-            <div className="h-8 w-8 bg-blue-600 border-4 border-black -ml-4 -rotate-12"></div>
-            <span className="font-black text-xl tracking-tighter ml-2 text-black dark:text-white">USNEWSE</span>
-          </Link>
-        </div>
-
+        {/* Removed entire header/title section */}
+        
         <nav className="p-6">
           <h2 className="text-lg font-black uppercase mb-6 border-b-2 border-black dark:border-white pb-2 text-black dark:text-white">
             Study Tools
