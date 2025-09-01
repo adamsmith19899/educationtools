@@ -1,4 +1,4 @@
-'use client'
+'use client' // ←←← THIS LINE WAS MISSING
 
 import { ToolLayout } from "@/components/tool-layout"
 import { useState } from "react"
