@@ -13,10 +13,7 @@ import {
   Target,
   FileCheck,
   Lightbulb,
-  Menu,
-  X,
 } from "lucide-react"
-import { useState } from "react"
 
 const tools = [
   { name: "Flashcard Generator", href: "/flashcard-generator", icon: BookOpen, color: "bg-blue-600" },
@@ -33,28 +30,12 @@ const tools = [
 
 export default function Sidebar() {
   const pathname = usePathname()
-  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <>
-      {/* Mobile Menu Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 right-4 z-50 bg-yellow-500 border-4 border-black p-2 shadow-brutal"
-      >
-        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-      </button>
-
-      {/* Sidebar */}
-      <aside
-        className={`
-        fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-900 border-l-8 border-black z-40 transform transition-transform duration-300 ease-in-out
-        ${isOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"}
-      `}
-      >
-        {/* Removed entire header/title section */}
-        
-        <nav className="p-6">
+    <aside className="lg:w-80 lg:flex-shrink-0 lg:ml-8 order-1 lg:order-2">
+      {/* No fixed positioning — flows with the page */}
+      <div className="bg-white dark:bg-gray-900 border-8 border-black p-6">
+        <nav>
           <h2 className="text-lg font-black uppercase mb-6 border-b-2 border-black dark:border-white pb-2 text-black dark:text-white">
             Study Tools
           </h2>
@@ -67,7 +48,6 @@ export default function Sidebar() {
                 <li key={tool.href}>
                   <Link
                     href={tool.href}
-                    onClick={() => setIsOpen(false)}
                     className={`
                       flex items-center gap-3 p-3 border-2 border-black font-bold text-sm transition-all
                       ${
@@ -85,12 +65,7 @@ export default function Sidebar() {
             })}
           </ul>
         </nav>
-      </aside>
-
-      {/* Overlay for mobile */}
-      {isOpen && (
-        <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-30" onClick={() => setIsOpen(false)} />
-      )}
-    </>
+      </div>
+    </aside>
   )
 }
